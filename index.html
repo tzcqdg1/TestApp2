@@ -28,36 +28,26 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
+		   <script>
+				function onDeviceReady() {
+						// Now safe to use the Codova API
+				window.location="http://www.protechshop.info/"; }
+			</script>
     </head>
     <body>
 		<h1> Hello World </h1>
-		 <a href="http://www.protechshop.info/" target="_blank">Visit our shop tutorial</a> 
+		 <a href="http://www.protechshop.info/">Visit our shop tutorial</a> 
 		 
 		 <a href="http://www.protechshop.info/" onclick="openInAppBrowserBlank('http://www.protechshop.info/');">open InAppBrowser</a>
 
-			var ref = null;
-			function openInAppBrowserBlank(url)
-			{
-					try {
-			ref = window.open(encodeURI(url),'_blank','location=no'); //encode is needed if you want to send a variable with your link if not you can use ref = window.open(url,'_blank','location=no');
-         ref.addEventListener('loadstop', LoadStop);
-         ref.addEventListener('exit', Close);
-			}
-				catch (err)    
-			{
-        alert(err);
-			}
-				}
-		function LoadStop(event) {
-         if(event.url == "http://www.protechshop.info/about"){
-            // alert("fun load stop runs");
-             ref.close();
-         }    
-			}
-		function Close(event) {
-         ref.removeEventListener('loadstop', LoadStop);
-         ref.removeEventListener('exit', Close);
-		} 
+			var ref = window.open('http://apache.org', '_blank', 'location=yes');
+     document.addEventListener("deviceready", onDeviceReady, false); 
+
+			<script>
+				function onDeviceReady() {
+						// Now safe to use the Codova API
+				window.location="http://www.protechshop.info/"; }
+			</script>
 		
 	    <a href="http://www.protechshop.info/about">Close</a>
 		
