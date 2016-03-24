@@ -32,6 +32,35 @@
     <body>
 		<h1> Hello World </h1>
 		 <a href="http://www.protechshop.info/">Visit our shop tutorial</a> 
+		 
+		 <a href="http://www.protechshop.info/" onclick="openInAppBrowserBlank('http://www.protechshop.info/');">open InAppBrowser</a>
+
+			var ref = null;
+			function openInAppBrowserBlank(url)
+			{
+					try {
+			ref = window.open(encodeURI(url),'_blank','location=no'); //encode is needed if you want to send a variable with your link if not you can use ref = window.open(url,'_blank','location=no');
+         ref.addEventListener('loadstop', LoadStop);
+         ref.addEventListener('exit', Close);
+			}
+				catch (err)    
+			{
+        alert(err);
+			}
+				}
+		function LoadStop(event) {
+         if(event.url == "http://www.protechshop.info/about"){
+            // alert("fun load stop runs");
+             ref.close();
+         }    
+			}
+		function Close(event) {
+         ref.removeEventListener('loadstop', LoadStop);
+         ref.removeEventListener('exit', Close);
+		} 
+		
+	    <a href="http://www.protechshop.info/about">Close</a>
+		
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
